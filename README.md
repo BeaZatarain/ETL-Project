@@ -42,31 +42,26 @@ Para la limpieza y la exploración de los datos, hemos utilizado Python y concre
 
 Con ello, este proceso ha consistido básicament en: 
 
-1. Explorar que información contiene cada CSV entregado por el cliente de cara a, posteriormente, facilitarnos las futuras relaciones que se crearán en el momento de crear la base de datos. 
+1. Unificar en un sólo dataframe tanto la tabla de códigos postales de Madrid, como la tabla de población por código postal al tratarse de dos tablas muy relacionadas. Cabe destacar, que la tabla de población por código postal tenía una estructura inicial que impedía la unificación con la otra tabla por lo que se ha utilizado el método de pivot table antes de hacer merge. 
 
-2. Limpieza de información que no aportaba valor a la base de datos (columnas constantes, duplicados, nulos...)
+2. Limpieza de tabla de servicios sociales de Madrid, en la que hemos eliminado ciertas columnas que no aportaban valor a futuros posibles análisis y limpieza de nulos en las columnas de coordenadas (rellenados con 'unknown'). Por último, cabe destacar que en algunas ocasiones el servicio social aparecía con un código postal y dirección 'reservado', por tanto, al no tener otro dato con el que relacionar los datos, se han eliminado dichas filas. 
 
-Finalmente, tras todo este proceso, hemos importado los CSVs a Mysql para crear la base de datos. Cabe remarcar que, tras este proceso:
 
- - El CSV de old_HDD, ha sido dividido en dos "tablas puente". Por un lado, old_HDD1.csv con el fin de ser tabla intermedia entre films y actors y por otro, old_HDD2.csv, que relacionado con la tabla de films, nos proporcionará la informaición necesaria para consultar las categorías de todas las películas. 
 
- - El CSV de category, no ha sido importado ya que tras el proceso de limpieza en Python, la información que contenía se ha incluido en old_HDD2.csv como tabla puente de conexión.
+## **3. Carga de datos a MySQL Workbench**
+
+Una vez finalizado el proceso de exploración y limpieza de los datos recopilados y transformados, se ha llevado a cabo un proceso de análisis para establecer las relaciones entre las tablas de la nueva base de datos. Cabe remarcar que, tras este proceso:
+
+ - Aunque partíamos de tres tablas diferentes, tras la unificación de la tabla de población y la de códigos postales, únicamente se han importado dos tablas. 
+
+ - La relación principal entre las tablas es por el código postal.
  
- En definitiva, los CSVs que se han importado son los siguientes:
  
- ![imports](https://github.com/BeaZatarain/Data-Base-Project/blob/main/images/csvsimport.png)
+ En definitiva, los CSVs y la relación de nuestra base de datosson los siguientes:
+ 
+ ![relaciones](https://github.com/BeaZatarain/ETL-Project/blob/main/images/relacion.png)
  
 
-## Creación de la Base de Datos 'Vidieoclub'
-
-
-Una vez finalizado el proceso de exploración y limpieza de los datos recopilados y transformados, se ha llevado a cabo un proceso de análisis para establecer las relaciones entre las tablas de la nueva base de datos. 
-
-También, se ha analizado cuidadosamente, el tipo de dato que contiene cada columna de las identidades de la base de datos para evitar errores a la hora de la creación. 
-
-Con ello, el resultado final, se puede apreciar en la siguiente imagen:
-
- ![Relaciones](https://github.com/BeaZatarain/ETL-Project/blob/main/images/relacion.png)
 
 
 
