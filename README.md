@@ -1,7 +1,7 @@
 # ETL-Project
 
 
-![cabecera]()
+![cabecera](https://github.com/BeaZatarain/ETL-Project/blob/main/images/cabecera.png)
 
 ## Descripción general del proyecto
 
@@ -19,16 +19,19 @@ Por último, este proyecto, tiene como objetivo recopilar datos de los servicios
 ### 1.1 Importación CSV de Base de datos de Registro de Servicios Sociales de la Comunidad de Madrid
 
 **Fuente**: 'https://datos.comunidad.madrid/catalogo/dataset/servicios_sociales_registro_centros'
+
 **Método de extracción**: descarga CSV de la página web oficial.
 
 ### 1.2 Scraping codigos postales de la comunidad de Madrid
 
 **Fuente**: 'https://www.worldpostalcodes.org/es/espana/comunidad-autonoma/lista-de-codigos-postales-en-community-of-madrid'
+
 **Método**: scraping utilizando la herramienta **Selenium** de Python.
 
 ### 1.3 Población por cada código postal de la Comunidad de Madrid de 2022
 
 **Fuente**: INE = 'https://www.ine.es/jaxiT3/Tabla.htm?t=2881'
+
 **Método**: configuración de la selección de datos (población por cada CP de la Comunidad de Madrid del año 2022, por género y número total de personas)
 
 
@@ -63,7 +66,7 @@ También, se ha analizado cuidadosamente, el tipo de dato que contiene cada colu
 
 Con ello, el resultado final, se puede apreciar en la siguiente imagen:
 
- ![Relaciones](https://github.com/BeaZatarain/Data-Base-Project/blob/main/images/Relacion_BD.png)
+ ![Relaciones](https://github.com/BeaZatarain/ETL-Project/blob/main/images/relacion.png)
 
 
 
